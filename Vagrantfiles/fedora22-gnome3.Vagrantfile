@@ -1,9 +1,14 @@
 Vagrant.configure(2) do |config|
- config.vm.box = "fedora22-gnome"
- config.vm.provider "virtualbox" do |vb|
-   vb.gui = true
-   vb.customize ["modifyvm", :id, "--vram", "128"]
-   vb.memory = 2048
-   vb.cpus = 2
- end
+  config.vm.box = "idi/fedora22"
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.gui = true
+    vb.memory = "2048"
+    vb.customize ["modifyvm", :id, "--cpus", "2"]
+    vb.customize ["modifyvm", :id, "--vram", "128"]
+    vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
+    vb.customize ["modifyvm", :id, "--audio", "null", "--audiocontroller", "ac97"]
+    vb.customize ["modifyvm", :id, "--ioapic", "on"]
+    vb.customize ["setextradata", "global", "GUI/SuppressMessages", "all"]
+  end
 end
