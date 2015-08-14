@@ -138,6 +138,7 @@
         "script/vagrant.sh",
         "script/vmtool.sh",
         "script/cmtool.sh",
+        "script/idiipackages.sh",
         "script/cleanup.sh"
       ],
       "type": "shell"
