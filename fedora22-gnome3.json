@@ -138,8 +138,9 @@
         "script/vagrant.sh",
         "script/vmtool.sh",
         "script/cmtool.sh",
-        "script/idiipackages.sh",
         "script/hosts-workaround.sh",
+        "script/idi-packages.sh",
+        "script/browser-config.sh",
         "script/cleanup.sh"
       ],
       "type": "shell"
