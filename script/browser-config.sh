@@ -11,7 +11,7 @@ mkdir -p /etc/opt/chrome/policies/{managed,recommended}
 # https://code.google.com/p/chromium/issues/detail?id=138983#c6
 # https://code.google.com/p/chromium/issues/detail?id=306104#c13
 
-# A global configuration file doesn't exist for Chrome so a new create will be
+# A default global configuration file doesn't exist for Chrome so a new will be
 # created.
 
 cat <<-EOF > /etc/opt/chrome/policies/managed/defaults.json
@@ -42,3 +42,6 @@ sed -i 's/\(pref("browser.newtabpage.pinned",\).*/\1 true);/' $firefox_config_fi
 # startup.homepage_welcome_url -> "about:blank"
 
 echo 'pref("startup.homepage_welcome_url", "about:blank");' >> $firefox_config_file
+echo 'pref("datareporting.healthreport.uploadEnabled", false);' >> $firefox_config_file
+echo 'pref("datareporting.healthreport.service.enabled", false);' >> $firefox_config_file
+echo 'pref("datareporting.healthreport.service.firstRun", false);' >> $firefox_config_file
