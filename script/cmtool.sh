@@ -72,10 +72,10 @@ install_puppet()
 
     if [[ ${CM_VERSION:-} == 'latest' ]]; then
         echo "==> Installing latest Puppet version"
-        yum -y install puppet
+        dnf -y install puppet
     else
         echo "==> Installing Puppet version ${CM_VERSION}"
-        yum -y install "puppet-${CM_VERSION}"
+        dnf -y install "puppet-${CM_VERSION}"
     fi
 }
 
