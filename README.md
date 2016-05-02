@@ -1,3 +1,4 @@
+
 # Packer templates for Fedora
 
 ### Overview
@@ -7,21 +8,7 @@ using Packer.
 
 ## Current Boxes
 
-64-bit boxes:
-
 * [Fedora 22 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/fedora22)
-* [Fedora 21 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/fedora21)
-* [Fedora 20 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/fedora20)
-* [Fedora 19 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/fedora19)
-* [Fedora 18 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/fedora18)
-
-32-bit boxes:
-
-* [Fedora 21 (32-bit)](https://atlas.hashicorp.com/boxcutter/boxes/fedora21-i386)
-* [Fedora 20 (32-bit)](https://atlas.hashicorp.com/boxcutter/boxes/fedora20-i386)
-* [Fedora 19 (32-bit)](https://atlas.hashicorp.com/boxcutter/boxes/fedora19-i386)
-* [Fedora 18 (32-bit)](https://atlas.hashicorp.com/boxcutter/boxes/fedora18-i386)
-
 
 ## Building the Vagrant boxes
 
