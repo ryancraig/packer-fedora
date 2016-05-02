@@ -1,5 +1,5 @@
 Vagrant.configure(2) do |config|
-  config.vm.box = "idi/fedora22"
+  config.vm.box = "inclusivedesign/fedora22"
 
   config.vm.provider "virtualbox" do |vb|
     vb.gui = true
