@@ -8,7 +8,8 @@ using Packer.
 
 ## Current Boxes
 
-* [Fedora 22 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/fedora22)
+* [Fedora 23 (64-bit)](https://atlas.hashicorp.com/inclusivedesign/boxes/fedora23)
+* [Fedora 22 (64-bit)](https://atlas.hashicorp.com/inclusivedesign/boxes/fedora22)
 
 ## Building the Vagrant boxes
 
