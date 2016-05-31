@@ -1,4 +1,5 @@
-# Packer templates for Fedora
+
+# Packer Templates for Fedora
 
 ### Overview
 
@@ -7,26 +8,12 @@ using Packer.
 
 ## Current Boxes
 
-64-bit boxes:
+* [Fedora 23 (64-bit)](https://atlas.hashicorp.com/inclusivedesign/boxes/fedora23)
+* [Fedora 22 (64-bit)](https://atlas.hashicorp.com/inclusivedesign/boxes/fedora22)
 
-* [Fedora 22 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/fedora22)
-* [Fedora 21 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/fedora21)
-* [Fedora 20 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/fedora20)
-* [Fedora 19 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/fedora19)
-* [Fedora 18 (64-bit)](https://atlas.hashicorp.com/boxcutter/boxes/fedora18)
+## Building the Vagrant Boxes
 
-32-bit boxes:
-
-* [Fedora 21 (32-bit)](https://atlas.hashicorp.com/boxcutter/boxes/fedora21-i386)
-* [Fedora 20 (32-bit)](https://atlas.hashicorp.com/boxcutter/boxes/fedora20-i386)
-* [Fedora 19 (32-bit)](https://atlas.hashicorp.com/boxcutter/boxes/fedora19-i386)
-* [Fedora 18 (32-bit)](https://atlas.hashicorp.com/boxcutter/boxes/fedora18-i386)
-
-
-## Building the Vagrant boxes
-
-To build all the boxes, you will need VirtualBox and VMware
-installed.
+To build all the boxes, you will need Packer and VirtualBox installed.
 
 A GNU Make `Makefile` drives the process via the following targets:
 
@@ -34,41 +21,28 @@ A GNU Make `Makefile` drives the process via the following targets:
     make test   # Run tests against all the boxes
     make list   # Print out individual targets
     make clean  # Clean up build detritus
-
-### Proxy Settings
-
-The templates respect the following network proxy environment variables
-and forward them on to the virtual machine environment during the box creation
-process, should you be using a proxy:
-
-* http_proxy
-* https_proxy
-* ftp_proxy
-* rsync_proxy
-* no_proxy
- 
-### Tests
-
-The tests are written in [Serverspec](http://serverspec.org) and require the
-`vagrant-serverspec` plugin to be installed with:
-
-    vagrant plugin install vagrant-serverspec
-
-The `Makefile` has individual targets for each box type with the prefix
-`test-*` should you wish to run tests individually for each box.
-
-    make test-virtualbox/fedora22
     
-Similarly there are targets with the prefix `ssh-*` for registering a
-newly-built box with vagrant and for logging in using just one command to
-do exploratory testing.  For example, to do exploratory testing
-on the VirtualBox training environmnet, run the following command:
+For IDI boxes the following target should be used:
 
-    make ssh-virtualbox/fedora22
+    make virtualbox/fedora23
 
-Upon logout `make ssh-*` will automatically de-register the box as well.
+## Troubleshoot Build Issues
 
-### Makefile.local override
+Part of the build process involves operating system installation. In this phase Packer is unable to retrieve logs from the installation tools being used by the operating system; if an error occurs here then the build will fail without meaningful errors. At this point a virtual display can be used to monitor the installation:
+
+    HEADLESS=true make virtualbox/fedora23
+    
+### Create a New Release
+
+When a new version of Fedora is released the following files will need to be created:
+
+* Vagrantfiles/fedora<version>.Vagrantfile
+* fedora<version>.json
+* http/ks-fedora<version>.cfg
+
+This ``README.md`` and the ``VERSION`` file will also need to be updated. Any Fedora releases that are [no longer supported upstream](https://fedoraproject.org/wiki/Releases#Current_Supported_Releases) should have their files pruned from this repository.
+
+### Makefile.local Overrides
 
 You can create a `Makefile.local` file alongside the `Makefile` to override
 some of the default settings.  The variables can that can be currently
@@ -91,7 +65,7 @@ the output of `make list` accordingly.
 
 Possible values for the CM variable are:
 
-* `nocm` - No configuration management tool
+* `nocm` - No configuration management tool (this should be used for IDI and GPII projects)
 * `chef` - Install Chef
 * `puppet` - Install Puppet
 * `salt`  - Install Salt
