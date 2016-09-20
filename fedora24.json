@@ -134,6 +134,7 @@
         "script/hosts-workaround.sh",
         "script/idi-packages.sh",
         "script/browser-config.sh",
+        "script/user-envs.sh",
         "script/cleanup.sh"
       ],
       "type": "shell"
