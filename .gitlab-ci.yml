@@ -1,0 +1,23 @@
+stages:
+  - prepare
+  - build
+
+before_script:
+  - "mkdir -p $TMPDIR"
+  - "ln -s $HOME/packer_cache packer_cache"
+  - "git submodule sync --recursive"
+  - "git submodule update --init --recursive"
+
+variables:
+  TMPDIR: "$CI_PROJECT_DIR/../tmp"
+
+build_fedora_x64_job:
+  stage: build_x64
+  script:
+    - "make test-virtualbox/fedora25"
+    - "bash tests/test.sh"
+    - "mv box/virtualbox/*.box $HOME/boxes/"
+  tags:
+    - box_build
+  allow_failure: true
+
