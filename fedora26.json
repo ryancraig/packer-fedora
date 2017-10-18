@@ -145,7 +145,7 @@
   "variables": {
     "cm": "nocm",
     "cm_version": "",
-    "disk_size": "10140",
+    "disk_size": "15360",
     "ftp_proxy": "{{env `ftp_proxy`}}",
     "headless": "true",
     "http_proxy": "{{env `http_proxy`}}",
