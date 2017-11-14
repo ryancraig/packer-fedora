@@ -25,9 +25,7 @@ mkdir -pm 700 ${SSH_USER_HOME}/.ssh
 echo "${VAGRANT_INSECURE_KEY}" > $SSH_USER_HOME/.ssh/authorized_keys
 chmod 0600 ${SSH_USER_HOME}/.ssh/authorized_keys
 chown -R ${SSH_USER}:${SSH_USER} ${SSH_USER_HOME}/.ssh
-if [ "${PKG_MGR}" == "dnf" ]; then
-  chcon -R unconfined_u:object_r:user_home_t:s0 ${SSH_USER_HOME}/.ssh
-fi
+chcon -R unconfined_u:object_r:user_home_t:s0 ${SSH_USER_HOME}/.ssh
 
 echo "==> Recording box config date"
 date > /etc/vagrant_box_build_time
