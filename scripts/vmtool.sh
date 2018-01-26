@@ -3,7 +3,7 @@
 
 echo "==> Installing VirtualBox guest additions"
 
-dnf -y install kernel-headers-$(uname -r) kernel-devel-$(uname -r) gcc make perl
+dnf -y install kernel-headers-$(uname -r) kernel-devel-$(uname -r) elfutils-libelf-devel gcc make perl
 
 VBOX_VERSION=$(cat /home/vagrant/.vbox_version)
 mount -o loop /home/vagrant/VBoxGuestAdditions_${VBOX_VERSION}.iso /mnt
