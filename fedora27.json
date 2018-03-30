@@ -57,6 +57,7 @@
         "scripts/user-envs.sh",
         "scripts/packages.sh",
         "scripts/browser-config.sh",
+        "scripts/INFRA-150.sh",
         "scripts/GPII-2075.sh",
         "scripts/cleanup.sh"
       ],
