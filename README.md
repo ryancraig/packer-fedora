@@ -29,4 +29,7 @@ _NOTE: Replace `{{VERSION}}` with correct version number such as `28`, `29`, or 
 ## Publish box to Vagrant Cloud
 $ curl 'https://vagrantcloud.com/api/v1/box/USERNAME/BOX_NAME/version/VERSION/provider/PROVIDER_NAME/upload?access_token=ACCESS_TOKEN'
 
+*Example*
+```
 $ curl 'https://vagrantcloud.com/api/v1/box/ryancraig/fedora-iac-dev-workstation/version/1.0.0/provider/virtualbox/upload?access_token=oVThR4H0usQIQg.atlasv1.v08CamGyr4Dg4eUiyzWubPRCAGTZLNEau08ozYzPoczhoUSnGLOoyIzl0yYAl75Huqc'
+```
