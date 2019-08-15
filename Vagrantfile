@@ -1,13 +1,13 @@
 Vagrant.configure(2) do |config|
-  config.vm.box = "inclusivedesign/fedora28"
+  config.vm.box = "devops/fedora28-iac-dev-ws"
+  config.vm.box_url = "file:///home/us20428@melaleuca.net/scratch/_git/azp-repos/devtestlabs-xyz/packer-fedora/box/virtualbox/vagrant-virtualbox-fedora28-v20190807145922.box"
 
   config.vm.provider "virtualbox" do |vb|
     vb.gui = true
-    vb.memory = "2048"
+    vb.memory = "4096"
     vb.customize ["modifyvm", :id, "--cpus", "2"]
     vb.customize ["modifyvm", :id, "--vram", "128"]
     vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
-    vb.customize ["modifyvm", :id, "--audio", "null", "--audiocontroller", "ac97"]
     vb.customize ["modifyvm", :id, "--ioapic", "on"]
     vb.customize ["setextradata", "global", "GUI/SuppressMessages", "all"]
   end
