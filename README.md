@@ -1,11 +1,11 @@
 
-# Packer Templates for Fedora
+# Packer-Fedora
 
 ### Overview
 
-This repository contains the solution assets to create Fedora 30 Vagrant-managed VirtualBox box using Packer.
+This project contains all of the assets required to successfully build a Fedora Vagrant box. Currently the only supported Vagrant provider is `virtualbox`. Hashicorp Packer is employed to build and package this Vagrant box.
 
-This Fedora 30 Workstation is provisioned as a Infrastructure as Code development workstation. It includes:
+This Fedora Workstation is provisioned as a base box that can easily be further provisioned as an Infrastructure as Code development workstation. It includes:
 
 * Git
 * VSCode
@@ -13,27 +13,43 @@ This Fedora 30 Workstation is provisioned as a Infrastructure as Code developmen
 * Google Chrome
 * Firefox
 * Docker CE (`vagrant` user is put in `docker` group)
+* Python3
 
-## Current Boxes
+## Available Vagrant Boxes
+* [Fedora 30 (64-bit)](https://app.vagrantup.com/ryancraig/boxes/fedora30-dev-ws)
 
-* [Fedora 28 (64-bit)](https://atlas.hashicorp.com/inclusivedesign/boxes/fedora28)
+## How to build a Vagrant Box
 
-## Building the Vagrant Boxes
+### Prerequisites
+
+Install according to vendor instuctions:
+
+* [Hashicorp Vagrant](https://www.vagrantup.com/)
+* [Hashicorp Packer](https://www.packer.io/)
+* [Oracle VirtualBox](https://www.virtualbox.org/)
+
+*NOTE: The `VirtualBox Extension Pack` is not necessary and should not be installed unless you are willing to pay licensing fees to Oracle for its use!*
+
+### Execute Packer build
+
+Execute:
 
 ```
-$ hashicorp-packer build fedora{{VERSION}}.json
+packer build fedora{{ VERSION }}.json
 ```
 
-_NOTE: Replace `{{VERSION}}` with correct version number such as `28`, `29`, or `30`.  Example: `hashicorp-packer build fedora30.json`_
+*NOTE: Replace `{{ VERSION }}` with correct version number such as `30`.  Example: `packer build fedora30.json`*
+
+This Vagrant box build process can take awhile. This is especially true the first time you execute this build as Packer has to go download the specified Fedora ISO. The fetched ISO is put in `./packer_cache` so that Packer only has to download the ISO once.
 
 ## Publish box to Vagrant Cloud
-$ curl 'https://vagrantcloud.com/api/v1/box/USERNAME/BOX_NAME/version/VERSION/provider/PROVIDER_NAME/upload?access_token=ACCESS_TOKEN'
+If you wish to publish your Vagrant box to the Vagrant Cloud, read and follow the directions provided by Hashicorp:
 
-*Example*
-```
-$ curl 'https://vagrantcloud.com/api/v1/box/ryancraig/fedora-iac-dev-workstation/version/1.0.0/provider/virtualbox/upload?access_token=oVThR4H0usQIQg.atlasv1.v08CamGyr4Dg4eUiyzWubPRCAGTZLNEau08ozYzPoczhoUSnGLOoyIzl0yYAl75Huqc'
-```
+[Hashicorp Vagrant Documentation: Create and Publish a Vagrant Box to Vagrant Cloud](https://www.vagrantup.com/docs/vagrant-cloud/boxes/create.html)
 
 ## External References
 
-* [HashiCorp Vagrant Documentation: Create Box via API](https://www.vagrantup.com/docs/vagrant-cloud/boxes/create.html)
+* [Hashicorp Vagrant Documentation: Create and Publish a Vagrant Box to Vagrant Cloud](https://www.vagrantup.com/docs/vagrant-cloud/boxes/create.html)
+* [Hashicorp Vagrant](https://www.vagrantup.com/)
+* [Hashicorp Packer](https://www.packer.io/)
+* [Oracle VirtualBox](https://www.virtualbox.org/)
