@@ -1,6 +1,6 @@
 Vagrant.configure(2) do |config|
-  config.vm.box = "devops/fedora28-iac-dev-ws"
-  config.vm.box_url = "file:///home/us20428@melaleuca.net/scratch/_git/azp-repos/devtestlabs-xyz/packer-fedora/box/virtualbox/vagrant-virtualbox-fedora28-v20190807145922.box"
+  config.vm.box = "ryancraig/fedora30-dev-ws"
+  config.vm.box_url = "file:///home/us20428@melaleuca.net/scratch/_git/azp-repos/devtestlabs-xyz/packer-fedora/box/virtualbox/vagrant-virtualbox-fedora30-v20190807145922.box"
 
   config.vm.provider "virtualbox" do |vb|
     vb.gui = true

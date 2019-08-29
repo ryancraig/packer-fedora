@@ -1,9 +1,9 @@
 Vagrant.configure(2) do |config|
-  config.vm.box = "devops/fedora28-iac-dev-ws"
-  config.vm.box_url = file:///box/virtualbox/vagrant-virtualbox-fedora28-v20190807145922.box
+  config.vm.box = "ryancraig/fedora30-dev-ws"
+  config.vm.box_url = "file:///box/virtualbox/vagrant-virtualbox-fedora30-v20190807145922.box"
 
   config.vm.provider "virtualbox" do |vb|
-    vb.name = fedora30-iac-dev-ws
+    #vb.name = "fedora30-iac-dev-ws"
     vb.gui = true
     vb.memory = "4096"
     vb.customize ["modifyvm", :id, "--cpus", "2"]
