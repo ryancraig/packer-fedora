@@ -33,3 +33,7 @@ $ curl 'https://vagrantcloud.com/api/v1/box/USERNAME/BOX_NAME/version/VERSION/pr
 ```
 $ curl 'https://vagrantcloud.com/api/v1/box/ryancraig/fedora-iac-dev-workstation/version/1.0.0/provider/virtualbox/upload?access_token=oVThR4H0usQIQg.atlasv1.v08CamGyr4Dg4eUiyzWubPRCAGTZLNEau08ozYzPoczhoUSnGLOoyIzl0yYAl75Huqc'
 ```
+
+## External References
+
+* [HashiCorp Vagrant Documentation: Create Box via API](https://www.vagrantup.com/docs/vagrant-cloud/boxes/create.html)
