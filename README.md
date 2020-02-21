@@ -17,6 +17,7 @@ This Fedora Workstation is provisioned as a base box that can easily be further 
 
 ## Available Vagrant Boxes
 * [Fedora 30 (64-bit)](https://app.vagrantup.com/ryancraig/boxes/fedora30-dev-ws)
+* [Fedora 31 (64-bit)](https://app.vagrantup.com/ryancraig/boxes/fedora31-dev-ws)
 
 ## How to build a Vagrant Box
 

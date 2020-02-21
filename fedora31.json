@@ -1,12 +1,12 @@
 {
   "builders": [
     {
-      "iso_checksum": "bb0622b78449298e24a96b90b561b429edec71aae72b8f7a8c3da4d81e4df5b7",
+      "iso_checksum": "225ebc160e40bb43c5de28bad9680e3a78a9db40c9e3f4f42f3ee3f10f95dbeb",
       "iso_checksum_type": "sha256",
-      "iso_urls": "https://dl.fedoraproject.org/pub/fedora/linux/releases/30/Server/x86_64/iso/Fedora-Server-dvd-x86_64-30-1.2.iso",
+      "iso_urls": "https://dl.fedoraproject.org/pub/fedora/linux/releases/31/Server/x86_64/iso/Fedora-Server-dvd-x86_64-31-1.9.iso",
       "http_directory": "http",
       "boot_command": [
-       "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/fedora30-kickstart.cfg<enter><wait>"
+       "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/fedora31-kickstart.cfg<enter><wait>"
       ],
       "disk_size": "20480",
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
@@ -33,15 +33,15 @@
         ]
       ],
       "virtualbox_version_file": ".vbox_version",
-      "vm_name": "packer-fedora30-v{{ isotime \"20060102150405\" }}"
+      "vm_name": "packer-fedora31-v{{ isotime \"20060102150405\" }}"
     }
   ],
   "post-processors": [
     {
       "keep_input_artifact": false,
-      "output": "box/{{.Provider}}/vagrant-virtualbox-fedora30-v{{ isotime \"20060102150405\" }}.box",
+      "output": "box/{{.Provider}}/vagrant-virtualbox-fedora31-v{{ isotime \"20060102150405\" }}.box",
       "type": "vagrant",
-      "vagrantfile_template": "fedora30-vagrantfile.tpl"
+      "vagrantfile_template": "fedora31-vagrantfile.tpl"
     }
   ],
   "provisioners": [
@@ -51,7 +51,7 @@
         "scripts/sshd.sh",
         "scripts/update.sh",
         "scripts/vagrant.sh",
-        "scripts/docker.sh",
+        "scripts/podman.sh",
         "scripts/vmtool.sh",
         "scripts/hosts-workaround.sh",
         "scripts/user-envs.sh",

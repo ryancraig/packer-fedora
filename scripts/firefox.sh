@@ -1,5 +1,6 @@
 #!/bin/bash -eux
 
+echo "==> Installing Firefox..."
 # Install packages
 dnf install -y firefox
 

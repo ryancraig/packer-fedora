@@ -1,7 +1,7 @@
 #!/bin/bash -eux
 
 
-echo "==> Installing VirtualBox guest additions"
+echo "==> Installing VirtualBox guest additions..."
 
 dnf -y install kernel-headers kernel-devel elfutils-libelf-devel gcc make perl
 

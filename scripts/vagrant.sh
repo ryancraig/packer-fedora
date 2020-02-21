@@ -1,6 +1,6 @@
 #!/bin/bash -eux
 
-echo "==> Configuring settings for vagrant"
+echo "==> Configuring settings for vagrant..."
 
 SSH_USER=${SSH_USER:-vagrant}
 SSH_USER_HOME=${SSH_USER_HOME:-/home/${SSH_USER}}

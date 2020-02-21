@@ -1,5 +1,6 @@
 #!/bin/bash -eux
 
+echo "==> Installing VSCode..."
 # Install VSCode
 rpm --import https://packages.microsoft.com/keys/microsoft.asc
 

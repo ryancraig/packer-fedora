@@ -1,5 +1,6 @@
 #!/bin/bash -eux
 
+echo "==> Installing Chrome..."
 # Install Google Chrome
 rpm --import https://dl-ssl.google.com/linux/linux_signing_key.pub
 
